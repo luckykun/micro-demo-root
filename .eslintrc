@@ -1,0 +1,14 @@
+{
+  "extends": [
+    "eslint-config-ali",
+    "eslint-config-ali/react"
+  ],
+  "plugins": [
+    "react",
+    "react-hooks"
+  ],
+  "rules": {
+    "import/prefer-default-export": 0, 
+    "import/no-unresolved": 0
+  }
+}
