@@ -1,11 +1,13 @@
 import React from 'react';
 
 const App = () => {
-  const [state, setstate] = React.useState(1);
+  const result = mi.isNumber(10);
+  console.log('result', result);
 
   return (
     <div style={{ padding: 24 }}>
-      hello world
+      <UI.Button type="primary">我是antd按钮</UI.Button>
+      <UI.Loading text="loading" />
     </div>
   );
 };
