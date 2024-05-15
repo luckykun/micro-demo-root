@@ -1,5 +1,6 @@
 {
   "name": "root",
   "filename": "root.min",
+  "port": "8808",
   "cssExtract": false
 }

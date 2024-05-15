@@ -7,7 +7,7 @@ const App = () => {
   return (
     <div style={{ padding: 24 }}>
       <UI.Button type="primary">我是antd按钮</UI.Button>
-      <UI.Loading text="loading" />
+      <UI.Input placeholder="输入名称" />
     </div>
   );
 };
