@@ -1,8 +1,19 @@
 import React from 'react';
 
-const App = () => {
+function getb() {
+  console.log(2);
+}
+
+
+const Component = () => {
   const result = mi.isNumber(10);
   console.log('result', result);
+
+  const geta = () => {
+    console.log(1);
+    getb(1);
+  };
+
 
   return (
     <div style={{ padding: 24 }}>
@@ -13,4 +24,4 @@ const App = () => {
 };
 
 
-export default App;
+export default Component;
