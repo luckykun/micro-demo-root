@@ -1,18 +1,8 @@
 import React from 'react';
 
-function getb() {
-  console.log(2);
-}
-
-
 const Component = () => {
   const result = mi.isNumber(10);
   console.log('result', result);
-
-  const geta = () => {
-    console.log(1);
-    getb(1);
-  };
 
 
   return (
