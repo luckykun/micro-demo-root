@@ -1,8 +1,7 @@
-import React from 'react';
+import { useData } from './utils';
 
 const Component = () => {
-  const result = mi.isNumber(10);
-  console.log('result', result);
+  const { data } = useData();
 
 
   return (

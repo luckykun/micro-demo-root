@@ -1,7 +1,7 @@
 {
   "name": "root",
   "filename": "root.min",
-  "port": "8809",
+  "port": "8808",
   "cssExtract": false,
   "copyFilePath": "src/config/schema.json"
 }
