@@ -3,7 +3,7 @@ export const useData = () => {
 
   React.useEffect(() => {
     const fetchData = async () => {
-      const d = await mi.fetcher('/api/getUsers.json');
+      const d = await mi.fetcher({ url: '/api/getUsers.json' });
       setData(d);
     };
     fetchData();
