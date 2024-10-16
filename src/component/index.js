@@ -4,7 +4,6 @@ const Component = () => {
   const { data } = useData();
   console.log('data', data);
 
-
   return (
     <div style={{ padding: 24, display: 'flex', gap: '8px' }}>
       <UI.Select style={{ width: 240 }} options={data.data} placeholder="请选择数据" />
