@@ -1,18 +1,53 @@
-import { useData } from './utils';
+
+import { createHashHistory } from 'history';
+import { Router, Route, Switch, Redirect } from 'react-router-dom';
+import './index.scss';
+
+const history = createHashHistory();
+
+const items = [
+  { key: '/overview', label: '总览页', component: () => 'overview' },
+  { key: '/assetManage', label: '资产管理', component: () => 'assetManage' },
+  { key: '/users', label: '人员管理', component: () => 'users' },
+];
+
 
 const Component = () => {
-  const { data } = useData();
-  console.log('data', data);
+  const [activeKey, setActiveKey] = React.useState(history.location.pathname);
+  const onClick = (d) => {
+    history.push(d.key);
+  };
+
+  React.useEffect(() => {
+    const unlisten = history.listen(() => {
+      setActiveKey(history.location.pathname);
+    });
+    return () => unlisten(); // 组件卸载时执行
+  }, []);
+
+
+  const routeConfig = items.map(({ key, component: Comp }) => (
+    <Route key={key} path={key} component={Comp} />
+  ));
+
 
   return (
-    <div>
-      <div style={{ fontSize: 24, textAlign: 'center' }}>
-        Hello, World!
+    <div className="micro-app-layout">
+      <div className="app-menu">
+        <UI.Menu
+          onClick={onClick}
+          selectedKeys={[activeKey]}
+          mode="inline"
+          items={items}
+        />
       </div>
-      <div style={{ padding: 24, display: 'flex', gap: '8px' }}>
-        <UI.Select style={{ width: 240 }} options={data.data} placeholder="请选择数据" />
-        <UI.Input placeholder="输入名称" />
-        <UI.Button type="primary">搜索</UI.Button>
+      <div className="app-content">
+        <Router history={history}>
+          <Switch>
+            {routeConfig}
+            <Route path="*"><Redirect to={items[0]?.key} /></Route>
+          </Switch>
+        </Router>
       </div>
     </div>
   );
